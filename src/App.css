@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+* {
+	-webkit-user-select: none;
+	/* Chrome, Safari, Android and iOS */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer */
+	user-select: none;
+	/* Disables text selection */
+	margin: 0;
+	padding: 0;
+	/* Remove margins and paddings on elements */
+	box-sizing: border-box;
+	/* Generate paddings inside elements */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	padding: 1rem;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	background: rgba(12, 12, 12, 0.89);
+	/* Default bg */
+	background-image: url('../src/components/assets/img/default-bg.jpg');
+	/* background-image: url('https://source.unsplash.com/1600x900/?landscape'); */
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-size: 120%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+	/* Fallback color */
+	background: #000000d0;
+	background-image: linear-gradient(to bottom, #000000d0, rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.021));
+	color: white;
+	padding: 2em;
+	padding-bottom: 350px;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.search {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+	margin: 0.5em;
+	border-radius: 50%;
+	border: none;
+	height: 44px;
+	width: 44px;
+	outline: none;
+	background: #7c7c7c2b;
+	color: white;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input.search-bar {
+	border: none;
+	outline: none;
+	padding: 0.4em 1em;
+	border-radius: 24px;
+	background: #7c7c7c2b;
+	color: white;
+	font-family: inherit;
+	font-size: 105%;
+	width: calc(100% - 100px);
+}
+
+button:hover {
+	background: #7c7c7c6b;
+}
+
+h1.temp {
+	margin: 0;
+	margin-bottom: 0.4em;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.description {
+	text-transform: capitalize;
+	margin-left: 8px;
+}
+
+.weather.loading {
+	visibility: hidden;
+	max-height: 20px;
+	position: relative;
+}
+
+.weather.loading:after {
+	visibility: visible;
+	content: "Loading...";
+	color: white;
+	position: relative;
+	top: 30%;
+	left: 40%;
 }
