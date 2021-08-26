@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import LoadingWidget from './LoadingWidget';
+import LoadingWeather from './LoadedWeather';
 
 class WeatherInformation extends Component {
+	// This load weather widget depending if weather widget is loading or not
 	render() {
+		const isWidgetLoading = this.props.isWidgetLoading;
+		console.log(isWidgetLoading);
 		return (
 			<div>
-				<div className="weather notLoading loading">
-					<h2 className="city">Weather in Denver</h2>
-					<h1 className="temp">51°C</h1>
-					<div className="flex">
-						<img src="https://openweathermap.org/img/wn/04n.png" alt="" className="icon" />
-						<div className="description">Cloudy</div>
-					</div>
-					<div className="humidity">Humidity: 60%</div>
-					<div className="wind">Wind speed: 6.2 km/h</div>
-				</div>
+				{isWidgetLoading?
+					<LoadingWidget /> : <LoadingWeather />
+				}
 			</div>
 		);
 	}
