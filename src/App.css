@@ -22,14 +22,13 @@ body {
 	width: 100vw;
 	padding: 1rem;
 	margin: 0;
-	font-family: 'Open Sans', sans-serif;
 	background: rgba(12, 12, 12, 0.89);
 	/* Default bg */
 	background-image: url('../src/components/assets/img/default-bg.jpg');
 	/* background-image: url('https://source.unsplash.com/1600x900/?landscape'); */
 	background-size: cover;
 	background-repeat: no-repeat;
-	font-size: 120%;
+	font-size: 1.225;
 }
 
 .card {
@@ -50,6 +49,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 1rem;
 }
 
 button {
@@ -73,7 +73,7 @@ input.search-bar {
 	background: #7c7c7c2b;
 	color: white;
 	font-family: inherit;
-	font-size: 105%;
+	font-size: 1rem;
 	width: calc(100% - 100px);
 }
 
@@ -96,17 +96,27 @@ h1.temp {
 	margin-left: 8px;
 }
 
-.weather.loading {
-	visibility: hidden;
+.weather.notLoading {
 	max-height: 20px;
-	position: relative;
 }
 
 .weather.loading:after {
-	visibility: visible;
 	content: "Loading...";
 	color: white;
-	position: relative;
-	top: 30%;
-	left: 40%;
+}
+
+/* Typography */
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Fira+Sans:wght@500&family=Pacifico&display=swap);
+
+body {
+	font-family: "Fira Sans", sans-serif;
+	font-weight: 400;
+}
+
+.temp {
+	font-size: 3.535rem;
+	font-family: "Cormorant Garamond", sans-serif;
+	text-align: center;
+	margin: 1.625rem auto;
 }
