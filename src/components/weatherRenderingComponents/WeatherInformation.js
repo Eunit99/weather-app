@@ -6,7 +6,7 @@ class WeatherInformation extends Component {
 	// This load weather widget depending if weather widget is loading or not
 	render() {
 		const isWidgetLoading = this.props.isWidgetLoading;
-		console.log(isWidgetLoading);
+		console.log(`isWidgetLoading? ${isWidgetLoading}`);
 		return (
 			<div>
 				{isWidgetLoading?
