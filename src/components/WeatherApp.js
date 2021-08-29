@@ -42,14 +42,14 @@ const WeatherApp = () => {
 		let month = months[today.getMonth()];
 		let year = today.getFullYear();
 
-		return `${day}, ${date} ${month} ${year}`;
+		return `${day} ${date} ${month} ${year}`;
 	}
 
 	return (
 		<div className="card">
 			{/* WeatherInformation */}
 			<p className="date-container">{dateFunction(today)} </p>
-			<WeatherInformation isWidgetLoading={isLoading} todayDate={dateFunction(today)} />
+			<WeatherInformation isWidgetLoading={isLoading} />
 		</div>
 	);
 }

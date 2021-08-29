@@ -10,7 +10,7 @@ class WeatherInformation extends Component {
 		return (
 			<div>
 				{isWidgetLoading?
-					<LoadingWidget /> : <LoadedWeather todayDate={this.props.todayDate}/>
+					<LoadingWidget /> : <LoadedWeather />
 				}
 			</div>
 		);

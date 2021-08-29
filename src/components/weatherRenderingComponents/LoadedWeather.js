@@ -4,7 +4,6 @@ import { fakeData } from '../weatherJSComponents/fakeData';
 
 class LoadedWeather extends Component {
 	render() {
-		const todayDate = this.props.todayDate
 		const {
 			country,
 			state,
@@ -19,14 +18,12 @@ class LoadedWeather extends Component {
 		} = fakeData;
 
 		console.log(country);
-		console.log(todayDate);
 		return (
 
 			<div>
 				{/* Search input */}
 				<SearchInput />
 				<div className="weather" >
-					{/* <p className="date-container">{todayDate} </p> */}
 
 					<h2 className="city">Weather in {country}</h2>
 					<h1 className="temp">{temperature}°C</h1>
