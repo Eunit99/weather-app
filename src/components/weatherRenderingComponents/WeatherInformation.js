@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoadingWidget from './LoadingWidget';
-import LoadingWeather from './LoadedWeather';
+import LoadedWeather from './LoadedWeather';
 
 class WeatherInformation extends Component {
 	// This load weather widget depending if weather widget is loading or not
@@ -10,7 +10,7 @@ class WeatherInformation extends Component {
 		return (
 			<div>
 				{isWidgetLoading?
-					<LoadingWidget /> : <LoadingWeather />
+					<LoadingWidget /> : <LoadedWeather todayDate={this.props.todayDate}/>
 				}
 			</div>
 		);
