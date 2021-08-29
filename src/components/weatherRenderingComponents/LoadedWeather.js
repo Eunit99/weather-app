@@ -4,6 +4,8 @@ import { fakeData } from '../weatherJSComponents/fakeData';
 
 class LoadedWeather extends Component {
 	render() {
+		const data = this.props.data;
+		console.log(`Data from the fetchAPI: ${data}`)
 		const {
 			name: location,
 			sys: {

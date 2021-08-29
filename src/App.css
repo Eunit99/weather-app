@@ -43,6 +43,11 @@ body {
 	margin: 0;
 	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
 }
 
 .search {

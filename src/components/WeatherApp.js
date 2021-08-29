@@ -22,6 +22,7 @@ const WeatherApp = () => {
 				.then(data => {
 					console.log(`The returned data is: ${data}`); //data returned from the fetch
 					console.log(`The returned stringify data is: ${JSON.stringify(data)}`); //data returned from the fetch
+					var eunit = data;
 					return data;
 				})
 			})
@@ -58,6 +59,8 @@ const WeatherApp = () => {
 		}
 	}
 
+	const data = eunit;
+
 	function dateFunction(today) {
 		let months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 		let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -80,6 +83,7 @@ const WeatherApp = () => {
 				onChangeHandler={onChangeHandler}
 				onClickHandler={onClickHandler}
 				searchQuery={searchQuery}
+				data={data}
 			/>
 		</div>
 	);

@@ -17,6 +17,7 @@ class WeatherInformation extends Component {
 						onClickHandler={this.props.onClickHandler}
 						onChangeHandler={this.props.onChangeHandler}
 						searchQuery={this.props.searchQuery}
+						data={this.props.data}
 						/>
 				}
 			</div>
