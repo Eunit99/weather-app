@@ -48,6 +48,7 @@ const WeatherApp = () => {
 	return (
 		<div className="card">
 			{/* WeatherInformation */}
+			<p className="date-container">{dateFunction(today)} </p>
 			<WeatherInformation isWidgetLoading={isLoading} todayDate={dateFunction(today)} />
 		</div>
 	);

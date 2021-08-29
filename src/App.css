@@ -33,11 +33,10 @@ body {
 }
 
 .card {
-	/* Fallback color */
 	border: 1px solid #fff;
 	background-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.021));
 	color: white;
-	padding: 4rem;
+	padding: 2rem;
 	padding-top: 2em;
 	width: 100%;
 	margin: 0;
@@ -105,9 +104,34 @@ body {
 	font-weight: 400;
 }
 
+.city,
+.temp {
+	text-shadow: 2px 1px 5px #cac9c979;
+}
+
 .temp {
 	font-size: 7.535rem;
 	font-family: "Cormorant Garamond", sans-serif;
 	text-align: center;
 	margin: 1.625rem auto;
+}
+
+.date-container {
+	color: #fff;
+	text-shadow: 2px 1px 5px #cac9c979;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+	position: absolute;
+	right: 4px;
+	top: 15%;
+	font-size: inherit;
+}
+
+@media screen and (min-width: 768px) {
+	.card {
+		padding: 4rem;
+		padding-top: 3em;
+		width: 600px;
+		margin: 0;
+	}
 }

@@ -26,6 +26,8 @@ class LoadedWeather extends Component {
 				{/* Search input */}
 				<SearchInput />
 				<div className="weather" >
+					{/* <p className="date-container">{todayDate} </p> */}
+
 					<h2 className="city">Weather in {country}</h2>
 					<h1 className="temp">{temperature}°C</h1>
 					<div className="flex">
