@@ -110,7 +110,7 @@ body {
 }
 
 .temp {
-	font-size: 7.535rem;
+	font-size: 6.135rem;
 	font-family: "Cormorant Garamond", sans-serif;
 	text-align: center;
 	margin: 1.625rem auto;
@@ -134,5 +134,9 @@ body {
 		padding-top: 3em;
 		width: 600px;
 		margin: 0;
+	}
+
+	.temp {
+		font-size: 7.535rem;
 	}
 }
