@@ -10,7 +10,9 @@ class WeatherInformation extends Component {
 		return (
 			<div>
 				{isWidgetLoading?
-					<LoadingWidget />
+					<LoadingWidget
+						isWidgetLoading={this.props.isWidgetLoading}
+					/>
 					:
 					<LoadedWeather
 						handleEnterKey={this.props.handleEnterKey}

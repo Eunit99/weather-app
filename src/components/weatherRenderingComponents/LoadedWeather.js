@@ -45,7 +45,7 @@ class LoadedWeather extends Component {
 						</svg>
 					{location}, {country} </h2>
 					{/* 51°C */}
-					<h1 className="temp">{Math.round(temperature)}°C</h1>
+					<h1 className="detail">{Math.round(temperature)}°C</h1>
 					<div className="flex">
 						{/* https://openweathermap.org/img/wn/04n.png */}
 						<div className="icon">

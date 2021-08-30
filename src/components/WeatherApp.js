@@ -7,10 +7,10 @@ import { api } from '../components/weatherJSComponents/api';
 import { fakeData } from '../components/weatherJSComponents/fakeData';
 
 const WeatherApp = () => {
-	const [isLoading, setLoading] = useState(false); // Initialize loading of weather widget to true;
-	const [fetchData, setFetchData] = useState(fakeData); // Initialize fetchData with fakeData;
-	const [searchQuery, setSearchQuery] = useState("Lagos");
-	const today = new Date();
+	const [isWidgetLoading, setLoading] = useState(false), // Initialize loading of weather widget to true;
+				[fetchData, setFetchData] = useState(fakeData), // Initialize fetchData with fakeData;
+				[searchQuery, setSearchQuery] = useState("Lagos"),
+				today = new Date();
 
 
 	// Get the data from the API
@@ -19,19 +19,23 @@ const WeatherApp = () => {
 		fetch(`${api.base}weather?q=${searchQuery}&units=metric&APPID=${api.key}`)
 		// fetch('../components/weatherJSComponents/fakeData.js')
 			.then(res => {
-				res.json()
-				.then(data => {
-					// console.log(`The returned data is: ${data}`); //data returned from the fetch
-					// console.log(`The returned stringify data is: ${JSON.stringify(data)}`); //data returned from the fetch
-					setFetchData(data);
-					return data;
-				})
+				if (res.status === 404) {
+					console.error(`404 Error! Error fetching from ${api.base}`);
+					setLoading(true); //call setLoading to true so as not to display the widget
+				} else {
+					res.json()
+						.then(data => {
+							// console.log(`The returned data is: ${data}`); //data returned from the fetch
+							// console.log(`The returned stringify data is: ${JSON.stringify(data)}`); //data returned from the fetch
+							setFetchData(data);
+							return data;
+						})
+				}
 			})
 			.then(setLoading(false)) //call setLoading to false so as to display the widget
-			// .then(displayResult) //call displayResult function
-			.catch(setLoading(true)) //call setLoading to true so as to display the widget
 			.catch(err => {
 				console.error(`${err}! Error fetching from ${api.base}`) //error occurred!
+				console.log(`isWidgetLoading? ${isWidgetLoading}`)
 			});
 	}
 
@@ -77,9 +81,13 @@ const WeatherApp = () => {
 	return (
 		<div className="card">
 			{/* WeatherInformation */}
-			<p className="date-container">{dateFunction(today)} </p>
+
+			{/* Hide the date if isWidgetLoading is true */}
+
+			{{isWidgetLoading}? "" : <p className="date-container">{dateFunction(today)} </p>}
+
 			<WeatherInformation
-				isWidgetLoading={isLoading}
+				isWidgetLoading={isWidgetLoading}
 				onChangeHandler={onChangeHandler}
 				onClickHandler={onClickHandler}
 				handleEnterKey={handleEnterKey}
