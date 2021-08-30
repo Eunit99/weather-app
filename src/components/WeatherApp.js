@@ -29,7 +29,7 @@ const WeatherApp = () => {
 			})
 			.then(setLoading(false)) //call setLoading to false so as to display the widget
 			// .then(displayResult) //call displayResult function
-			// .catch(setLoading(true)) //call setLoading to true so as to display the widget
+			.catch(setLoading(true)) //call setLoading to true so as to display the widget
 			.catch(err => {
 				console.error(`${err}! Error fetching from ${api.base}`) //error occurred!
 			});

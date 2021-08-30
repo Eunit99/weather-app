@@ -12,7 +12,7 @@ class LoadedWeather extends Component {
 		const {
 			name: location,
 			sys: {
-				country
+				country = searchQuery
 			},
 			main: {
 				temp: temperature,
