@@ -51,7 +51,7 @@ const WeatherApp = () => {
 			});
 	}
 
-	useEffect(() => {
+	useEffect((searchQuery) => {
 		getData(searchQuery);
 	}, []); // this will run once because of the empty array immediately user visit page
 

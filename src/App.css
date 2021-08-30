@@ -22,10 +22,18 @@ body {
 	width: 100vw;
 	padding: 1rem;
 	margin: 0;
-	background: rgba(12, 12, 12, 0.89);
-	/* Default bg */
-	background-image: url('../src/components/assets/img/default-bg.jpg');
-	/* background-image: url('https://source.unsplash.com/1600x900/?landscape'); */
+	background-color: #06b79a !important;
+	background: -webkit-linear-gradient(180deg, #06b79a 70%, #7c32ff 100%);
+	background: -moz-linear-gradient(180deg, #06b79a 70%, #7c32ff 100%);
+	background: -o-linear-gradient(180deg, #06b79a 70%, #7c32ff 100%);
+	background: -ms-linear-gradient(180deg, #06b79a 70%, #7c32ff 100%);
+	background: linear-gradient(180deg, #06b79a 70%, #7c32ff 100%);
+	/*
+	* For development use only
+	* Uncomment in development
+	*/
+	/* background-image: url('../src/components/assets/img/default-bg.jpg'); */
+	background-image: url('https://source.unsplash.com/1600x900/?landscape');
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-size: 1.225;

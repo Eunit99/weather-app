@@ -6,7 +6,7 @@ class LoadingWidget extends Component {
 		const isWidgetLoading = this.props.isWidgetLoading,
 					errorMessage = this.props.errorMessage;
 
-		console.log(`isWidgetLoading? ${isWidgetLoading}`)
+		// console.log(`isWidgetLoading? ${isWidgetLoading}`)
 		return (
 			<div className="weather">
 				<p className="mb-3">
