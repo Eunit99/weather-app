@@ -44,6 +44,22 @@ body {
 	margin-bottom: 3rem;
 }
 
+.link {
+	text-decoration: none;
+	color: #000;
+	font-weight: 700;
+}
+
+.copyright {
+	background-color: transparent;
+	color: white;
+	padding: 2rem;
+	position: relative;
+	bottom: 0;
+	font-size: small;
+	text-align: center;
+}
+
 .card {
 	border: 1px solid #fff;
 	background-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.192), rgba(0, 0, 0, 0.021));

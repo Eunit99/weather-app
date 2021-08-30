@@ -99,7 +99,7 @@ const WeatherApp = () => {
 	}
 
 	return (
-		<div className="card">
+			<div className="card">
 			{/* WeatherInformation */}
 
 			{/* Hide the date if isWidgetLoading is true */}
@@ -115,7 +115,7 @@ const WeatherApp = () => {
 				fetchData={fetchData}
 				errorMessage={errorMessage}
 			/>
-		</div>
+			</div>
 	);
 }
 
