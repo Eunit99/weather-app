@@ -12,6 +12,8 @@ class WeatherInformation extends Component {
 				{isWidgetLoading?
 					<LoadingWidget
 						isWidgetLoading={this.props.isWidgetLoading}
+						errorMessage={this.props.errorMessage}
+
 					/>
 					:
 					<LoadedWeather
@@ -21,6 +23,8 @@ class WeatherInformation extends Component {
 						searchQuery={this.props.searchQuery}
 						data={this.props.data}
 						fetchData={this.props.fetchData}
+						errorMessage={this.props.errorMessage}
+
 						/>
 				}
 			</div>

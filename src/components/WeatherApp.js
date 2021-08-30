@@ -3,26 +3,36 @@ import React, {
 	useEffect
 } from 'react';
 import WeatherInformation from '../components/weatherRenderingComponents/WeatherInformation'
-import { api } from '../components/weatherJSComponents/api';
-import { fakeData } from '../components/weatherJSComponents/fakeData';
+import {
+	api
+} from '../components/weatherJSComponents/api';
+import {
+	fakeData
+} from '../components/weatherJSComponents/fakeData';
 
 const WeatherApp = () => {
 	const [isWidgetLoading, setLoading] = useState(false), // Initialize loading of weather widget to true;
-				[fetchData, setFetchData] = useState(fakeData), // Initialize fetchData with fakeData;
-				[searchQuery, setSearchQuery] = useState("Lagos"),
-				today = new Date();
+		[fetchData, setFetchData] = useState(fakeData), // Initialize fetchData with fakeData;
+		[searchQuery, setSearchQuery] = useState("Lagos"),
+		[errorMessage, setErrorMessage] = useState("Error!"),
+		today = new Date();
 
 
 	// Get the data from the API
 	const getData = (searchQuery) => { // searchQuery is the search input
 		// This getData function will only run once
 		fetch(`${api.base}weather?q=${searchQuery}&units=metric&APPID=${api.key}`)
-		// fetch('../components/weatherJSComponents/fakeData.js')
+			// fetch('../components/weatherJSComponents/fakeData.js')
 			.then(res => {
-				if (res.status === 404) {
-					console.error(`404 Error! Error fetching from ${api.base}`);
+				if (res.status === 400) {
+					console.error(`400 Bad request! Error fetching from ${api.base}! Undefined query.`);
+					setErrorMessage("Oops! The server could not understand the request due to invalid syntax. Kindly refresh this page and input the correct query.");
 					setLoading(true); //call setLoading to true so as not to display the widget
-				} else {
+				} else if (res.status === 404) {
+					console.error(`404 Not found! Error fetching from ${api.base}! Undefined query.`);
+					setErrorMessage("Oops! Seems there exist no city with that name. Kindly refresh this page and input the correct query.");
+					setLoading(true); //call setLoading to true so as not to display the widget
+				} else if (res.status === 200){
 					res.json()
 						.then(data => {
 							// console.log(`The returned data is: ${data}`); //data returned from the fetch
@@ -30,38 +40,40 @@ const WeatherApp = () => {
 							setFetchData(data);
 							return data;
 						})
+						.then(setLoading(false)) //call setLoading to false so as to display the widget
 				}
 			})
-			.then(setLoading(false)) //call setLoading to false so as to display the widget
 			.catch(err => {
-				console.error(`${err}! Error fetching from ${api.base}`) //error occurred!
-				console.log(`isWidgetLoading? ${isWidgetLoading}`)
+				console.error(`${err}! Unknown error occurred while trying to fetch from ${api.base}`) //error occurred!
+				setErrorMessage("Oops! An error occurred while trying to process your request. Kindly refresh this page and try again.");
+				setLoading(true); //call setLoading to true so as not to display the widget
+				// console.log(`isWidgetLoading? ${isWidgetLoading}`)
 			});
 	}
 
 	useEffect(() => {
-		// getData(searchQuery);
-	}, []);	// this will run once because of the empty array
+		getData(searchQuery);
+	}, []); // this will run once because of the empty array immediately user visit page
 
-// Events functions
+	// Events functions
 
 	const onChangeHandler = (e) => {
 		const searchQueryValue = e.target.value;
 		setSearchQuery(searchQueryValue);
-		console.log(`onChangeHandler value: ${searchQueryValue}`)
+		// console.log(`onChangeHandler value: ${searchQueryValue}`)
 	}
 
 	const onClickHandler = () => {
 		setSearchQuery(searchQuery);
 		getData(searchQuery);
-		console.log(`onClickHandler value: ${searchQuery}`)
+		// console.log(`onClickHandler value: ${searchQuery}`)
 	}
 
 	const handleEnterKey = (e) => {
 		if (e.key === "Enter") {
 			setSearchQuery(searchQuery);
 			getData(searchQuery);
-			console.log(`handleEnterKey value: ${searchQuery}`)
+			// console.log(`handleEnterKey value: ${searchQuery}`)
 		}
 	}
 
@@ -84,7 +96,7 @@ const WeatherApp = () => {
 
 			{/* Hide the date if isWidgetLoading is true */}
 
-			{{isWidgetLoading}? "" : <p className="date-container">{dateFunction(today)} </p>}
+			{{ isWidgetLoading } ? "" : <p className="date-container">{dateFunction(today)} </p>}
 
 			<WeatherInformation
 				isWidgetLoading={isWidgetLoading}
@@ -93,6 +105,7 @@ const WeatherApp = () => {
 				handleEnterKey={handleEnterKey}
 				searchQuery={searchQuery}
 				fetchData={fetchData}
+				errorMessage={errorMessage}
 			/>
 		</div>
 	);

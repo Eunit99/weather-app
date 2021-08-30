@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 class LoadingWidget extends Component {
 	render() {
 
-		const isWidgetLoading = this.props.isWidgetLoading;
+		const isWidgetLoading = this.props.isWidgetLoading,
+					errorMessage = this.props.errorMessage;
 
 		console.log(`isWidgetLoading? ${isWidgetLoading}`)
 		return (
 			<div className="weather">
 				<p className="mb-3">
-					Oops! Seems there exist no city with that name. Kindly refresh this page and input the correct city.
+					{errorMessage}
 				</p>
 				<div className="flex">
 					<h1 className="detail">Error!</h1>

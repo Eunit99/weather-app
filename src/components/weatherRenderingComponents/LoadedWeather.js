@@ -4,10 +4,11 @@ import { fakeData } from '../weatherJSComponents/fakeData';
 
 class LoadedWeather extends Component {
 	render() {
-		const fetchData = this.props.fetchData;
-		const searchQuery = this.props.searchQuery;
+		const fetchData = this.props.fetchData,
+					searchQuery = this.props.searchQuery;
+
 		// console.log(`This is the fetchData: ${JSON.stringify(fetchData)}`);
-		console.log(`My new searchQuery is: ${searchQuery} and typeof is ${typeof(searchQuery)}`);
+		// console.log(`searchQuery is: ${searchQuery} and typeof is ${typeof(searchQuery)}`);
 
 		const {
 			name: location,
