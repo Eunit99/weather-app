@@ -26,7 +26,7 @@ const WeatherApp = () => {
 			.then(res => {
 				if (res.status === 400) {
 					console.error(`400 Bad request! Error fetching from ${api.base}! Undefined query.`);
-					setErrorMessage("Oops! The server could not understand the request due to invalid syntax. Kindly refresh this page and input the correct query.");
+					setErrorMessage("Oops! The server could not understand the request due to invalid syntax or empty query. Kindly refresh this page and input the correct query.");
 					setLoading(true); //call setLoading to true so as not to display the widget
 				} else if (res.status === 404) {
 					console.error(`404 Not found! Error fetching from ${api.base}! Undefined query.`);
@@ -51,7 +51,7 @@ const WeatherApp = () => {
 			});
 	}
 
-	useEffect((searchQuery) => {
+	useEffect(() => {
 		getData(searchQuery);
 	}, []); // this will run once because of the empty array immediately user visit page
 
@@ -66,6 +66,10 @@ const WeatherApp = () => {
 	const onClickHandler = () => {
 		setSearchQuery(searchQuery);
 		getData(searchQuery);
+		if (searchQuery === "") {
+			setErrorMessage("Oops! An error occurred while trying to process your request. This is due to empty search query. Kindly refresh this page and input the correct query.");
+			setLoading(true); //call setLoading to true so as not to display the widget
+		};
 		// console.log(`onClickHandler value: ${searchQuery}`)
 	}
 
@@ -73,6 +77,10 @@ const WeatherApp = () => {
 		if (e.key === "Enter") {
 			setSearchQuery(searchQuery);
 			getData(searchQuery);
+			if (searchQuery === "") {
+				setErrorMessage("Oops! An error occurred while trying to process your request. This is due to empty search query. Kindly refresh this page and input the correct query.");
+				setLoading(true); //call setLoading to true so as not to display the widget
+			};
 			// console.log(`handleEnterKey value: ${searchQuery}`)
 		}
 	}

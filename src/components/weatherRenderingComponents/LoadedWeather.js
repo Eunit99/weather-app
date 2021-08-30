@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SearchInput from './SearchInput'
-import { fakeData } from '../weatherJSComponents/fakeData';
 
 class LoadedWeather extends Component {
 	render() {

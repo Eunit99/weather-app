@@ -8,6 +8,7 @@ const SearchInput = (props) => {
 				type="text"
 				className="search-bar"
 				placeholder="Search"
+				required={true}
 				onKeyDown={props.handleEnterKey}
 				defaultValue={props.searchQuery}
 				onChange={props.onChangeHandler}
