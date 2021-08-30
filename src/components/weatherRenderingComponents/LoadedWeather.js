@@ -4,12 +4,15 @@ import { fakeData } from '../weatherJSComponents/fakeData';
 
 class LoadedWeather extends Component {
 	render() {
-		const data = this.props.data;
-		console.log(`Data from the fetchAPI: ${data}`)
+		const fetchData = this.props.fetchData;
+		const searchQuery = this.props.searchQuery;
+		// console.log(`This is the fetchData: ${JSON.stringify(fetchData)}`);
+		console.log(`My new searchQuery is: ${searchQuery} and typeof is ${typeof(searchQuery)}`);
+
 		const {
 			name: location,
 			sys: {
-				country
+				country = searchQuery
 			},
 			main: {
 				temp: temperature,
@@ -22,7 +25,7 @@ class LoadedWeather extends Component {
 			wind: {
 				speed: windSpeed
 			}
-		} = fakeData;
+		} = fetchData || fakeData;
 
 		return (
 			<div>

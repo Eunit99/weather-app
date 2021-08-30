@@ -18,6 +18,7 @@ class WeatherInformation extends Component {
 						onChangeHandler={this.props.onChangeHandler}
 						searchQuery={this.props.searchQuery}
 						data={this.props.data}
+						fetchData={this.props.fetchData}
 						/>
 				}
 			</div>
