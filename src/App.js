@@ -8,7 +8,7 @@ function App() {
 		<div>
 			<WeatherApp />
 			<div className="copyright">
-				Copyright &copy; {year} Weathie by <a className="link" href="http://eunit.me" alt="Eunit" target="_blank">Eunit</a>
+				Copyright &copy; {year} Weathie by <a rel="noreferrer" className="link" href="http://eunit.me" alt="Eunit" target="_blank">Eunit</a>. Background by Unsplash
 			</div>
 		</div>
   );
