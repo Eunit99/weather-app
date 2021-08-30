@@ -44,12 +44,12 @@ export const fakeData = {
 		"type": 1,
 		"id": 5122,
 		"message": 0.0139,
-		"country": "US",
+		"country": "NG",
 		"sunrise": 1560343627,
 		"sunset": 1560396563
 	},
 	"timezone": -25200,
 	"id": 420006353,
-	"name": "Mountain View",
+	"name": "Lagos",
 	"cod": 200
 }

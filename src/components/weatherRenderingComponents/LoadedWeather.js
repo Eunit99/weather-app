@@ -12,7 +12,7 @@ class LoadedWeather extends Component {
 		const {
 			name: location,
 			sys: {
-				country = searchQuery
+				country
 			},
 			main: {
 				temp: temperature,
@@ -25,7 +25,7 @@ class LoadedWeather extends Component {
 			wind: {
 				speed: windSpeed
 			}
-		} = fetchData || fakeData;
+		} = fetchData;
 
 		return (
 			<div>

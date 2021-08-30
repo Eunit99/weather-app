@@ -9,12 +9,12 @@ import { fakeData } from '../components/weatherJSComponents/fakeData';
 const WeatherApp = () => {
 	const [isLoading, setLoading] = useState(false); // Initialize loading of weather widget to true;
 	const [fetchData, setFetchData] = useState(fakeData); // Initialize fetchData with fakeData;
-	const [searchQuery, setSearchQuery] = useState("Nigeria");
+	const [searchQuery, setSearchQuery] = useState("Lagos");
 	const today = new Date();
 
 
 	// Get the data from the API
-	const getData = (searchQuery = "Nigeria") => { // searchQuery is the search input
+	const getData = (searchQuery) => { // searchQuery is the search input
 		// This getData function will only run once
 		fetch(`${api.base}weather?q=${searchQuery}&units=metric&APPID=${api.key}`)
 		// fetch('../components/weatherJSComponents/fakeData.js')
@@ -35,34 +35,31 @@ const WeatherApp = () => {
 			});
 	}
 
-	useEffect((data) => {
-		getData();
+	useEffect(() => {
+		// getData(searchQuery);
 	}, []);	// this will run once because of the empty array
 
-	const onClickHandler = (e, searchValue) => {
-		setSearchQuery(e.target.value);
-		setFetchData(searchValue);
-		e.preventDefault();
+// Events functions
+
+	const onChangeHandler = (e) => {
+		const searchQueryValue = e.target.value;
+		setSearchQuery(searchQueryValue);
+		console.log(`onChangeHandler value: ${searchQueryValue}`)
 	}
 
-	const handleEnterKey = (e, searchValue) => {
+	const onClickHandler = () => {
+		setSearchQuery(searchQuery);
+		getData(searchQuery);
+		console.log(`onClickHandler value: ${searchQuery}`)
+	}
+
+	const handleEnterKey = (e) => {
 		if (e.key === "Enter") {
-			setSearchQuery(e.target.value);
-			setFetchData(searchValue);
-			e.preventDefault();
+			setSearchQuery(searchQuery);
+			getData(searchQuery);
+			console.log(`handleEnterKey value: ${searchQuery}`)
 		}
 	}
-
-	const onChangeHandler = (e, searchQuery) => {
-		var searchValue = e.target.value;
-		console.log(`SearchValue is ${searchValue}`)
-		{
-			setSearchQuery(e.target.value);
-			setFetchData(searchQuery);
-			e.preventDefault();
-		}
-	}
-
 
 
 	function dateFunction(today) {
@@ -83,9 +80,9 @@ const WeatherApp = () => {
 			<p className="date-container">{dateFunction(today)} </p>
 			<WeatherInformation
 				isWidgetLoading={isLoading}
-				handleEnterKey={handleEnterKey}
 				onChangeHandler={onChangeHandler}
 				onClickHandler={onClickHandler}
+				handleEnterKey={handleEnterKey}
 				searchQuery={searchQuery}
 				fetchData={fetchData}
 			/>
