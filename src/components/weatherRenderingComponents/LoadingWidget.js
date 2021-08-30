@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 class LoadingWidget extends Component {
 	render() {
 
-		const isWidgetLoading = this.props.isWidgetLoading,
-					errorMessage = this.props.errorMessage;
+		const errorMessage = this.props.errorMessage;
 
 		// console.log(`isWidgetLoading? ${isWidgetLoading}`)
 		return (
