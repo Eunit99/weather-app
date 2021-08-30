@@ -24,9 +24,9 @@ export const fakeData = {
 	}],
 	"base": "stations",
 	"main": {
-		"temp": 282.55,
-		"feels_like": 281.86,
-		"temp_min": 280.37,
+		"temp": 22.55,
+		"feels_like": 221.86,
+		"temp_min": 220.37,
 		"temp_max": 284.26,
 		"pressure": 1023,
 		"humidity": 100
